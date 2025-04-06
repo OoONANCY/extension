@@ -92,6 +92,6 @@ The system ensures a safe user experience by flagging or blurring content and is
 
 ### Steps
 1. Clone the repository:
-   ```bash
-   git clone [https://github.com/OoONANCY/extension.git]
+   bash
+   git clone [(https://github.com/OoONANCY/extension.git)]
    cd real-time-toxic-content-detector
