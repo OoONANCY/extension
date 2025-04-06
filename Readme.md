@@ -1,4 +1,5 @@
 # Real-Time Toxic Content Detector Browser Extension
+![WhatsApp Image 2025-04-06 at 17 28 48_a0a581ae](https://github.com/user-attachments/assets/56a8fee4-f666-4d32-a63a-e6d85f6f8f6f)
 
 ## Overview
 Welcome to the **Real-Time Toxic Content Detector**, a browser extension designed to protect users from toxic, harmful, or explicit content in real-time. This project addresses the critical need for proactive content moderation across digital platforms, leveraging advanced AI models to detect and block toxic text, violent or NSFW visuals, hate speech, and phishing URLs directly within the user's browser. We had dedicated Scalable mlops pipeline. Each model had it dedicated pipeline which are scheduled every 24hrs as the new data is added.
