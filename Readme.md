@@ -2,7 +2,12 @@
 ![WhatsApp Image 2025-04-06 at 17 28 48_a0a581ae](https://github.com/user-attachments/assets/56a8fee4-f666-4d32-a63a-e6d85f6f8f6f)
 
 ## Overview
-Welcome to the **Real-Time Toxic Content Detector**, a browser extension designed to protect users from toxic, harmful, or explicit content in real-time. This project addresses the critical need for proactive content moderation across digital platforms, leveraging advanced AI models to detect and block toxic text, violent or NSFW visuals, hate speech, and phishing URLs directly within the user's browser. We had dedicated Scalable mlops pipeline. Each model had it dedicated pipeline which are scheduled every 24hrs as the new data is added.
+
+Welcome to the **Real-Time Toxic Content Detector**, a browser extension designed to safeguard users from exposure to toxic, harmful, or explicit content across digital platforms—in real time. With the rapid rise of user-generated content, this tool addresses the urgent need for **proactive, multi-modal content moderation**, leveraging state-of-the-art AI models to detect and block toxic text, violent or NSFW visuals, hate speech, and phishing URLs directly within the user's browser.
+
+To ensure high availability and scalability, we’ve built a **robust, modular MLOps infrastructure**. Each AI model is managed through its **own dedicated and scalable pipeline**, powered by **Astro Airflow, MLflow, and DVC**, and orchestrated to retrain and redeploy every 24 hours as new data is added. This design not only enables **seamless continuous learning** but also supports **horizontal scaling**, ensuring the system remains responsive and effective even as content volume and complexity grow.
+
+---
 
 - **Theme**: Real-Time Toxic Content Detection
 - **Team Name**: Omkar
