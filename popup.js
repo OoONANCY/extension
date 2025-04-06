@@ -9,7 +9,8 @@ function displayFlaggedContent(flaggedItems) {
   } else {
     flaggedItems.forEach(item => {
       const li = document.createElement("li");
-      li.textContent = `${item.text} - ${item.label} (${(item.confidence * 100).toFixed(1)}%)`;
+      // Show actual text/image src with label and confidence
+      li.textContent = `${item.type === "image" ? "Image: " : "Text: "} ${item.text} - ${item.label} (${(item.confidence * 100).toFixed(1)}%)`;
       list.appendChild(li);
     });
   }

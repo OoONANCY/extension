@@ -1,11 +1,18 @@
 console.log("Content script loaded");
 
-// Define toxic words with categories
+// Define toxic words and images
 const toxicWords = {
   violence: ["kill", "shoot", "attack"],
-  nsfw: ["porn", "nude", "explicit", "nsfw"],
+  nsfw: ["porn", "nude", "explicit"],
   abuse: ["stupid", "dumb", "idiot"]
 };
+
+// Hardcoded toxic image URLs (replace with real URLs or use placeholders)
+const toxicImages = [
+  "https://example.com/toxic-image1.jpg",
+  "https://example.com/porn-image2.png",
+  "https://example.com/violent-image3.gif"
+];
 
 let flaggedContent = [];
 
@@ -13,7 +20,7 @@ function blurToxicContent() {
   console.log("Starting blurToxicContent");
   flaggedContent = []; // Reset flagged content
 
-  // Use querySelectorAll for broader coverage
+  // Blur toxic text
   const elements = document.querySelectorAll("body, body *");
   elements.forEach(el => {
     el.childNodes.forEach(node => {
@@ -27,11 +34,12 @@ function blurToxicContent() {
           newHTML = newHTML.replace(regex, (match) => {
             modified = true;
             flaggedContent.push({
+              type: "text",
               text: match,
               label: label.toUpperCase(),
               confidence: 0.95
             });
-            console.log(`Flagged: ${match} as ${label.toUpperCase()}`);
+            console.log(`Flagged text: ${match} as ${label.toUpperCase()}`);
             return `<span class="blurred-word" data-label="${label.toUpperCase()}">${match}</span>`;
           });
         }
@@ -45,7 +53,48 @@ function blurToxicContent() {
     });
   });
 
-  // Apply CSS
+  // Blur toxic images
+  const images = document.querySelectorAll("img");
+  images.forEach(img => {
+    const src = img.src.toLowerCase();
+    toxicImages.forEach(toxicSrc => {
+      if (src === toxicSrc) {
+        img.style.filter = "blur(8px)";
+        const wrapper = document.createElement("div");
+        wrapper.style.position = "relative";
+        wrapper.style.display = "inline-block";
+
+        const label = document.createElement("div");
+        label.textContent = "NSFW IMAGE";
+        Object.assign(label.style, {
+          position: "absolute",
+          top: "0",
+          left: "0",
+          background: "red",
+          color: "white",
+          fontSize: "10px",
+          padding: "2px 4px",
+          borderRadius: "3px",
+          zIndex: "9999"
+        });
+
+        const parent = img.parentNode;
+        parent.insertBefore(wrapper, img);
+        wrapper.appendChild(img);
+        wrapper.appendChild(label);
+
+        flaggedContent.push({
+          type: "image",
+          text: src, // Use src as the "text" for images
+          label: "NSFW",
+          confidence: 0.95
+        });
+        console.log(`Flagged image: ${src} as NSFW`);
+      }
+    });
+  });
+
+  // Apply CSS for blurred text
   const style = document.createElement("style");
   style.textContent = `
     .blurred-word {
