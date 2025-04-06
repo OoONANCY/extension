@@ -76,8 +76,8 @@ The system ensures a safe user experience by flagging or blurring content and is
 7. **Output**: Flagged results sent to the extension (popup view, downloadable JSON).
 
 ### MLOps Pipelines
-- [Gun-Detect-Ops](https://github.com/Aryan-coder-student/Gun-Detect-Ops)
-- [Toxic-Data-MLOps](https://github.com/Aryan-coder-student/toxic-data-MLOps)
+- [Gun-Detect-Ops](https://github.com/Aryan-coder-student/Gun-Detect-Ops.git)
+- [Toxic-Data-MLOps](https://github.com/Aryan-coder-student/toxic-data-MLOps.git)
 - [Toxic-Data-MLOps](https://github.com/Aryan-coder-student/BloodStain-OPs.git)
 
 ## [Deployement Link](https://cleanspeak.netlify.app/)
